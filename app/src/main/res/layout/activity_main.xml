@@ -1,10 +1,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <include
+        android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
     <LinearLayout
@@ -28,6 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textSize="18sp"
                 android:text="Red: 1" />
 
             <TextView
@@ -35,6 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textSize="18sp"
                 android:text="Green: 1" />
 
             <TextView
@@ -42,6 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textSize="18sp"
                 android:text="Blue: 1" />
 
         </LinearLayout>
@@ -49,32 +54,108 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hello_world" />
+            android:text="Define by color"
+            android:layout_marginTop="20dp"/>
 
-        <SeekBar
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/seekBar"
-            android:layout_gravity="center_horizontal" />
+            android:orientation="horizontal">
 
-        <SeekBar
+            <TextView
+                android:id="@+id/seek_r"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="R: 0.0"
+                android:layout_gravity="center_vertical"/>
+
+            <SeekBar
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/seekBarR"
+                android:max="10"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/seekBar2"
-            android:layout_gravity="center_horizontal" />
+            android:orientation="horizontal">
 
-        <SeekBar
+            <TextView
+                android:id="@+id/seek_g"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="G: 0.0"
+                android:layout_gravity="center_vertical"/>
+
+            <SeekBar
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/seekBarG"
+                android:max="10"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/seekBar3"
-            android:layout_gravity="center_horizontal" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/seek_b"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="B: 0.0"
+                android:layout_gravity="center_vertical"/>
+
+            <SeekBar
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/seekBarB"
+                android:max="10"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/color_reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Reset"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/color_toggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Set Colors"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
 
         <Button
-            android:id="@+id/toggle"
+            android:id="@+id/master_toggle"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="New Button" />
+            android:layout_marginTop="20dp"
+            android:text="Turn Off" />
+
+        <!--<com.melnykov.fab.FloatingActionButton-->
+            <!--android:id="@+id/fab"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="bottom|end"-->
+            <!--android:layout_margin="16dp"-->
+            <!--android:src="@drawable/ic_lightbulb_black_24dp"-->
+            <!--fab:fab_colorNormal="@color/primary"-->
+ <!--/>-->
 
     </LinearLayout>
 

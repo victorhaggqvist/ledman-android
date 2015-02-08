@@ -2,6 +2,8 @@ package com.snilius.ledman.data;
 
 import retrofit.http.GET;
 import retrofit.http.POST;
+import retrofit.http.Path;
+import retrofit.http.Query;
 
 /**
  * @author victor
@@ -15,5 +17,8 @@ public interface LedmanService {
     String off();
 
     @GET("/status")
-    String status();
+    Status status();
+
+    @POST("/set/{color}")
+    String set(@Path("color") String color, @Query("level") String level);
 }
