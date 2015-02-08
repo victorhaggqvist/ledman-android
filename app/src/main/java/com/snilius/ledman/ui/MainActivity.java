@@ -71,6 +71,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         mPreferences = new Preferences(this);
 
+        LedmanServiceProvider.setApikey(mPreferences.getApikey());
+        LedmanServiceProvider.setEndpoint(mPreferences.getEndpoint());
+
         new StatusTask().execute((Void) null);
     }
 
@@ -132,12 +135,12 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
-
+        // noop
     }
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
-
+        // noop
     }
 
     private class StatusTask extends AsyncTask<Void, Void, Integer> {
@@ -151,14 +154,11 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         @Override
         protected Integer doInBackground(Void... params) {
 
-            LedmanServiceProvider.setApikey(mPreferences.getApikey());
-            LedmanServiceProvider.setEndpoint(mPreferences.getEndpoint());
             LedmanService service = LedmanServiceProvider.getService();
 
             try {
                 mStatus = service.status();
             } catch (RetrofitError e) {
-//                e.printStackTrace();
                 if (null == e.getResponse()) {
                     return ENDPOINT_FAIL;
                 } else if (e.getResponse().getStatus() == 403) {
