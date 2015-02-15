@@ -125,6 +125,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="Reset"
+                style="@style/ButtonAppTheme"
                 android:layout_weight="1"/>
 
             <Button
@@ -133,6 +134,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="Set Colors"
+                style="@style/ButtonAppTheme"
                 android:layout_weight="1"/>
 
         </LinearLayout>
@@ -143,6 +145,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
+            style="@style/ButtonAppTheme"
             android:text="Turn Off" />
 
     </LinearLayout>
