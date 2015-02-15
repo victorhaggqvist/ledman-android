@@ -71,10 +71,14 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         mPreferences = new Preferences(this);
 
-        LedmanServiceProvider.setApikey(mPreferences.getApikey());
-        LedmanServiceProvider.setEndpoint(mPreferences.getEndpoint());
+        if (mPreferences.getEndpoint().length() < 1){
+            startActivity(new Intent(this, PreferencesActivity.class));
+        } else {
+            LedmanServiceProvider.setApikey(mPreferences.getApikey());
+            LedmanServiceProvider.setEndpoint(mPreferences.getEndpoint());
 
-        new StatusTask().execute((Void) null);
+            new StatusTask().execute((Void) null);
+        }
     }
 
 
