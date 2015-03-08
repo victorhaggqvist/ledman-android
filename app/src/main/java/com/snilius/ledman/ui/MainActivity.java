@@ -242,5 +242,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
             return null;
         }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            new StatusTask().execute();
+        }
     }
 }
