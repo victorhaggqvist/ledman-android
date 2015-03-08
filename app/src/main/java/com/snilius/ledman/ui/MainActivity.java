@@ -186,6 +186,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 else
                     mMasterToggle.setText(R.string.turnon);
 
+                mSeekBar[0].setProgress((int)(Double.parseDouble(mStatus.getR())*10));
+                mSeekBar[1].setProgress((int)(Double.parseDouble(mStatus.getG())*10));
+                mSeekBar[2].setProgress((int)(Double.parseDouble(mStatus.getB())*10));
+
             } else if(status == AUTH_FAIL) {
                 Toast.makeText(getApplicationContext(), "Auth fail, bad api key", Toast.LENGTH_LONG).show();
             } else if(status == ENDPOINT_FAIL) {
