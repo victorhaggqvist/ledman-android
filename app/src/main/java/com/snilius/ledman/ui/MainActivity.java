@@ -13,11 +13,13 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.crashlytics.android.Crashlytics;
 import com.snilius.ledman.util.Preferences;
 import com.snilius.ledman.R;
 import com.snilius.ledman.data.LedmanService;
 import com.snilius.ledman.data.LedmanServiceProvider;
 
+import io.fabric.sdk.android.Fabric;
 import retrofit.RetrofitError;
 import timber.log.Timber;
 
@@ -39,6 +41,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_main);
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);

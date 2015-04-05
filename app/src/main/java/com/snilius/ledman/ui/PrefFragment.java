@@ -7,6 +7,7 @@ import android.preference.PreferenceScreen;
 import android.support.v4.preference.PreferenceFragment;
 import android.support.v4.preference.PreferenceManagerCompat;
 
+import com.snilius.ledman.BuildConfig;
 import com.snilius.ledman.R;
 
 /**
@@ -42,6 +43,16 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
     }
 
     @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference.getKey().equals("version")) {
+            if (BuildConfig.DEBUG) {
+                int i = 1 / 0;
+            }
+        }
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+
+    @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
 
         if (key.equals("endpoint")) {
@@ -52,7 +63,6 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
             String apikey = sharedPreferences.getString(key, "");
             exercisesPref.setSummary(apikey.length()>0?"Key is set":"No key set");
         }
-
     }
 
     @Override

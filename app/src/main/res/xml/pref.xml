@@ -6,7 +6,7 @@
         <EditTextPreference
             android:id="@+id/apikey"
             android:title="Key"
-            android:key="apikey"/>
+            android:key="apikey" />
 
         <EditTextPreference
             android:id="@+id/endpoint"
@@ -15,4 +15,9 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="General">
+        <Preference
+            android:key="version"
+            android:title="Version" />
+    </PreferenceCategory>
 </PreferenceScreen>
