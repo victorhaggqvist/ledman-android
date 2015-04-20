@@ -40,6 +40,8 @@ public class PrefFragment extends PreferenceFragment implements SharedPreference
         onSharedPreferenceChanged(getPreferenceManager().getSharedPreferences(), "endpoint");
         onSharedPreferenceChanged(getPreferenceManager().getSharedPreferences(), "apikey");
 
+        String version = BuildConfig.VERSION_NAME+" ("+BuildConfig.VERSION_CODE+")";
+        findPreference("version").setSummary(version);
     }
 
     @Override
