@@ -2,8 +2,8 @@ package com.snilius.ledman.ui;
 
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,17 +14,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.crashlytics.android.Crashlytics;
-import com.snilius.ledman.util.Preferences;
 import com.snilius.ledman.R;
 import com.snilius.ledman.data.LedmanService;
 import com.snilius.ledman.data.LedmanServiceProvider;
+import com.snilius.ledman.util.Preferences;
 
 import io.fabric.sdk.android.Fabric;
 import retrofit.RetrofitError;
 import timber.log.Timber;
 
 
-public class MainActivity extends ActionBarActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
+public class MainActivity extends AppCompatActivity
+        implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
 
     private Toolbar mToolbar;
     private TextView mRed;
