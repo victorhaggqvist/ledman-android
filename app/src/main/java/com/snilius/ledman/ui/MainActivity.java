@@ -170,7 +170,10 @@ public class MainActivity extends AppCompatActivity
                 if (null == e.getResponse()) {
                     return ENDPOINT_FAIL;
                 } else if (e.getResponse().getStatus() == 403) {
+                    Crashlytics.setInt("StatusTask_http_status", 403);
                     return AUTH_FAIL;
+                } else {
+                    Crashlytics.setInt("StatusTask_http_status", e.getResponse().getStatus());
                 }
             }
 
@@ -180,7 +183,7 @@ public class MainActivity extends AppCompatActivity
         @Override
         protected void onPostExecute(Integer status) {
 
-            if (status == OK){
+            if (status == OK && null != mStatus){
                 mRed.setText(String.format(getString(R.string.status_red), mStatus.getR()));
                 mGreen.setText(String.format(getString(R.string.status_green), mStatus.getG()));
                 mBlue.setText(String.format(getString(R.string.status_blue), mStatus.getB()));
@@ -198,6 +201,8 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(getApplicationContext(), "Auth fail, bad api key", Toast.LENGTH_LONG).show();
             } else if(status == ENDPOINT_FAIL) {
                 Toast.makeText(getApplicationContext(), "Connection fail, bad endpoint", Toast.LENGTH_LONG).show();
+            } else if(null == mStatus) {
+                Toast.makeText(getApplicationContext(), "Some thing went wrong, better check the server", Toast.LENGTH_LONG).show();
             }
 
         }
