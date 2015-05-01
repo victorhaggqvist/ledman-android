@@ -37,7 +37,7 @@ public class LedmanServiceProvider {
 
             RequestInterceptor authInterceptor = new RequestInterceptor() {
                 @Override
-                public void intercept(RequestInterceptor.RequestFacade request) {
+                public void intercept(RequestFacade request) {
                     TokenFactory factory = new TokenFactory(mApikey);
                     request.addQueryParam("token", factory.getCredentials().getToken());
                     request.addQueryParam("timestamp", String.valueOf(factory.getCredentials().getTimestamp()));
@@ -56,8 +56,7 @@ public class LedmanServiceProvider {
                     .setRequestInterceptor(authInterceptor)
                     .build();
 
-            LedmanService service = restAdapter.create(LedmanService.class);
-            Holder.service = service;
+            Holder.service = restAdapter.create(LedmanService.class);
         } else {
             Timber.i("using existing rest adapter");
         }

@@ -33,10 +33,10 @@ public class TokenFactory {
             String salted = apikey+Long.toString(timestamp);
             byte[] hash = digest.digest(salted.getBytes());
 
-            StringBuffer hexString = new StringBuffer();
-            for (int i = 0; i < hash.length; i++) {
-                String hex = Integer.toHexString(0xff & hash[i]);
-                if(hex.length() == 1) hexString.append('0');
+            StringBuilder hexString = new StringBuilder();
+            for (byte aHash : hash) {
+                String hex = Integer.toHexString(0xff & aHash);
+                if (hex.length() == 1) hexString.append('0');
                 hexString.append(hex);
             }
 
