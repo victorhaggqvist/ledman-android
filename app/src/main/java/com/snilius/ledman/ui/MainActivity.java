@@ -198,11 +198,11 @@ public class MainActivity extends AppCompatActivity
                 mSeekBar[2].setProgress((int)(Double.parseDouble(mStatus.getB())*10));
 
             } else if(status.equals(AUTH_FAIL)) {
-                Toast.makeText(getApplicationContext(), "Auth fail, bad api key", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.auth_fail), Toast.LENGTH_LONG).show();
             } else if(status.equals(ENDPOINT_FAIL)) {
-                Toast.makeText(getApplicationContext(), "Connection fail, bad endpoint", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.connection_fail), Toast.LENGTH_LONG).show();
             } else if(null == mStatus) {
-                Toast.makeText(getApplicationContext(), "Some thing went wrong, better check the server", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.something_wrong), Toast.LENGTH_LONG).show();
             }
 
         }

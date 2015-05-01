@@ -12,4 +12,7 @@
     <string name="title_activity_about">About</string>
     <string name="description">Ledman is a client app to be used together with the Ledman LED control server, https://github.com/victorhaggqvist/ledman.</string>
     <string name="action_about">About</string>
+    <string name="auth_fail">Auth fail, bad api key</string>
+    <string name="connection_fail">Connection fail, bad endpoint</string>
+    <string name="something_wrong">Some thing went wrong, better check the server</string>
 </resources>
